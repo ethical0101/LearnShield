@@ -72,11 +72,11 @@ const Login: React.FC = () => {
       <div className="w-full max-w-md p-8 bg-white shadow-lg rounded-xl">
         {/* Logo and Title */}
         <div className="flex flex-col items-center mb-6">
-          <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 mb-2">
+          <div className="flex items-center justify-center mb-2 w-14 h-14 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600">
             <GraduationCap className="w-8 h-8 text-white" />
           </div>
           <span className="text-2xl font-bold text-gray-900">LearnShield</span>
-          <span className="text-sm text-gray-500 mt-1">Multi-Role Student Risk Dashboard</span>
+          <span className="mt-1 text-sm text-gray-500">Multi-Role Student Risk Dashboard</span>
         </div>
         <h2 className="mb-6 text-xl font-bold text-center">{isSignUp ? 'Sign Up' : 'Login'}</h2>
         <div className="flex justify-center mb-6">
