@@ -3,6 +3,8 @@ import { Upload, FileText, AlertCircle, CheckCircle } from 'lucide-react';
 import Papa from 'papaparse';
 import { AttendanceData, ScoresData, FeesData, GuardiansData, Student } from '../types';
 import { useData } from '../context/DataContext';
+import { db } from '../firebase';
+import { doc, setDoc, collection, getDocs, deleteDoc } from 'firebase/firestore';
 
 interface UploadZoneProps {
   onDataUploaded: (data: {
@@ -106,8 +108,13 @@ export function UploadZone({ onDataUploaded }: UploadZoneProps) {
     });
   }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (Object.values(uploadedFiles).every(file => file !== null)) {
+      // Delete all existing students in Firestore
+      const existing = await getDocs(collection(db, 'students'));
+      for (const docSnap of existing.docs) {
+        await deleteDoc(doc(db, 'students', docSnap.id));
+      }
       // Merge all parsed data into Student[]
       const attendanceMap = new Map(parsedData.attendance.map((a) => [a.rollNo, a]));
       const scoresMap = new Map(parsedData.scores.map((s) => [s.rollNo, s]));
@@ -154,6 +161,10 @@ export function UploadZone({ onDataUploaded }: UploadZoneProps) {
           flags: []
         };
       });
+      // Save each student to Firestore
+      for (const student of students) {
+        await setDoc(doc(db, 'students', student.rollNo), student);
+      }
       updateStudents(students);
       onDataUploaded(parsedData); // If you still want to use this prop
     }

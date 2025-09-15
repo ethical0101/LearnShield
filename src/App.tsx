@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { DataProvider } from './context/DataContext';
-import { Login } from './components/Login';
+import Login from './components/Login';
 import { Layout } from './components/Layout';
 import { Dashboard } from './pages/Dashboard';
 import { Students } from './pages/Students';
@@ -23,7 +23,7 @@ function AppRoutes() {
     <Layout>
       <Routes>
         <Route path="/dashboard" element={<Dashboard />} />
-        
+
         {/* Admin and Mentor routes */}
         {(user?.role === 'Admin' || user?.role === 'Mentor') && (
           <>
@@ -35,21 +35,21 @@ function AppRoutes() {
             <Route path="/ai-insights" element={<AIInsights />} />
           </>
         )}
-        
+
         {/* Guardian routes */}
         {user?.role === 'Guardian' && (
           <>
             <Route path="/student-profile" element={<StudentDetails />} />
           </>
         )}
-        
+
         {/* Student routes */}
         {user?.role === 'Student' && (
           <>
             <Route path="/my-profile" element={<StudentDetails />} />
           </>
         )}
-        
+
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>

@@ -49,7 +49,7 @@ export function StudentTable() {
       <div className="p-6 border-b border-gray-200">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <h2 className="text-lg font-semibold text-gray-900">Students Overview</h2>
-          
+
           <div className="flex items-center gap-4">
             {/* Search */}
             <div className="relative">
@@ -118,6 +118,9 @@ export function StudentTable() {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-900">
                     {student.attendancePercentage.toFixed(1)}%
+                    {student.flags.includes('Low Attendance') && (
+                      <span className="ml-2 px-2 py-0.5 rounded bg-red-100 text-red-700 text-xs font-semibold">Low Attendance</span>
+                    )}
                   </div>
                   <div className="text-xs text-gray-500">
                     {student.classesAttended}/{student.totalClasses} classes
@@ -134,8 +137,8 @@ export function StudentTable() {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                    student.feeStatus === 'Paid' 
-                      ? 'bg-green-100 text-green-800' 
+                    student.feeStatus === 'Paid'
+                      ? 'bg-green-100 text-green-800'
                       : 'bg-red-100 text-red-800'
                   }`}>
                     {student.feeStatus}

@@ -12,6 +12,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
     "@types/papaparse": "^5.3.16",
+    "firebase": "^12.2.1",
     "lucide-react": "^0.544.0",
     "papaparse": "^5.5.3",
     "react": "^18.3.1",
