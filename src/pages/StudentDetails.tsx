@@ -104,7 +104,7 @@ export function StudentDetails() {
       </div>
 
       {/* Performance Overview */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-blue-50 rounded-lg">
@@ -159,6 +159,39 @@ export function StudentDetails() {
               <p className="text-sm text-red-600 mt-1">
                 Due: ₹{student.dueAmount.toLocaleString()}
               </p>
+            )}
+          </div>
+        </div>
+
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+          <div className="flex items-center justify-between mb-4">
+            <div className="p-3 bg-pink-50 rounded-lg">
+              <Heart className="w-6 h-6 text-pink-600" />
+            </div>
+          </div>
+          <div>
+            <h3 className="text-sm font-medium text-gray-600">Mental Health</h3>
+            {student.mentalHealthRisk ? (
+              <>
+                <p className={`text-lg font-semibold mt-1 ${
+                  student.mentalHealthRisk === 'Low' ? 'text-green-600' :
+                  student.mentalHealthRisk === 'Moderate' ? 'text-yellow-600' :
+                  student.mentalHealthRisk === 'High' ? 'text-orange-600' :
+                  'text-red-600'
+                }`}>
+                  {student.mentalHealthRisk} Risk
+                </p>
+                {student.lastMentalHealthTest && (
+                  <p className="text-sm text-gray-500 mt-1">
+                    Last test: {new Date(student.lastMentalHealthTest).toLocaleDateString()}
+                  </p>
+                )}
+              </>
+            ) : (
+              <>
+                <p className="text-lg font-semibold text-gray-400 mt-1">Not Assessed</p>
+                <p className="text-sm text-gray-500 mt-1">No test taken</p>
+              </>
             )}
           </div>
         </div>
