@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useData } from '../context/DataContext';
-import { ArrowLeft, User, Mail, Phone, AlertTriangle, TrendingUp, Shield, Calendar, DollarSign } from 'lucide-react';
+import { ArrowLeft, User, Mail, Phone, AlertTriangle, TrendingUp, Shield, Calendar, DollarSign, Heart, Brain } from 'lucide-react';
 import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
 
 export function StudentDetails() {

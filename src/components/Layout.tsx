@@ -12,7 +12,8 @@ import {
   User,
   Shield,
   UserCheck,
-  GraduationCap
+  GraduationCap,
+  Heart
 } from 'lucide-react';
 
 interface LayoutProps {
@@ -75,7 +76,8 @@ export function Layout({ children }: LayoutProps) {
     if (user?.role === 'Student') {
       return [
         ...baseItems,
-        { path: '/my-profile', icon: User, label: 'My Profile' }
+        { path: '/my-profile', icon: User, label: 'My Profile' },
+        { path: '/mental-health-test', icon: Heart, label: 'Mental Health Test' }
       ];
     }
 

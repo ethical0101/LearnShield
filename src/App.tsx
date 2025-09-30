@@ -11,6 +11,7 @@ import { Settings } from './pages/Settings';
 import { Reports } from './pages/Reports';
 import { AIInsights } from './pages/AIInsights';
 import { StudentDetails } from './pages/StudentDetails';
+import { PsychometricTest } from './pages/PsychometricTest';
 
 function AppRoutes() {
   const { isAuthenticated, user } = useAuth();
@@ -47,6 +48,7 @@ function AppRoutes() {
         {user?.role === 'Student' && (
           <>
             <Route path="/my-profile" element={<StudentDetails />} />
+            <Route path="/mental-health-test" element={<PsychometricTest />} />
           </>
         )}
 

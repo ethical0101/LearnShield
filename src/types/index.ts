@@ -17,6 +17,9 @@ export interface Student {
   parentPhone: string;
   riskLevel: 'High Risk' | 'Medium Risk' | 'Safe';
   flags: string[];
+  mentalHealthScore?: number;
+  mentalHealthRisk?: 'Low' | 'Moderate' | 'High' | 'Severe';
+  lastMentalHealthTest?: Date;
 }
 
 export interface User {
