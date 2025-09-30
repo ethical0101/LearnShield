@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Brain, AlertTriangle, CheckCircle, Clock, FileText, TrendingDown } from 'lucide-react';
+import { Brain, TriangleAlert as AlertTriangle, CircleCheck as CheckCircle, Clock, FileText, TrendingDown } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useData } from '../context/DataContext';
 

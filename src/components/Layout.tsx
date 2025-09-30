@@ -1,20 +1,7 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import {
-  LayoutDashboard,
-  Users,
-  Upload,
-  Settings,
-  BarChart3,
-  Brain,
-  LogOut,
-  User,
-  Shield,
-  UserCheck,
-  GraduationCap,
-  Heart
-} from 'lucide-react';
+import { LayoutDashboard, Users, Upload, Settings, ChartBar as BarChart3, Brain, LogOut, User, Shield, UserCheck, GraduationCap, Heart } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
